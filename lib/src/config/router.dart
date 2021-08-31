@@ -1,4 +1,6 @@
 import 'package:get/route_manager.dart';
+import 'package:realtor_book/src/content_form/content_form_bindings.dart';
+import 'package:realtor_book/src/content_form/content_form_screen.dart';
 import '../content_list/content_list_bindings.dart';
 import '../content_list/content_list_screen.dart';
 import '../splash/splash_bindings.dart';
@@ -19,6 +21,10 @@ abstract class Routes {
           name: Routes.contentList,
           page: () => ContentListScreen(),
           binding: ContentListBindings()),
+      GetPage(
+          name: Routes.contentForm,
+          page: () => ContentFormScreen(),
+          binding: ContentFormBindings()),
     ];
   }
 }
