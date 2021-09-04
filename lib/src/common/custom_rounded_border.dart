@@ -36,6 +36,8 @@ class CustomRoundedCardWithHeader extends StatelessWidget {
   final double cornerRadius;
   final double elevation;
   final String header;
+  final VoidCallback? onTapAddButton;
+
   EdgeInsets? padding = EdgeInsets.all(10);
 
   CustomRoundedCardWithHeader(
@@ -44,6 +46,7 @@ class CustomRoundedCardWithHeader extends StatelessWidget {
       this.cornerRadius = 5,
       this.elevation = 2.0,
       this.padding,
+      this.onTapAddButton,
       required this.header}) {
     this.padding = (this.padding == null) ? EdgeInsets.all(10) : this.padding;
   }
@@ -64,10 +67,34 @@ class CustomRoundedCardWithHeader extends StatelessWidget {
             SizedBox(
               height: 10,
             ),
-            Text(
-              header,
-              style:
-                  CustomTextStyle.regular(size: 15, color: CustomColors.appBar),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    header,
+                    style: CustomTextStyle.regular(
+                        size: 15, color: CustomColors.appBar),
+                  ),
+                ),
+                if (onTapAddButton != null)
+                  GestureDetector(
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        color: CustomColors.appBar,
+                        shape: BoxShape.circle,
+                      ),
+                      child: Center(
+                        child: Icon(
+                          Icons.add,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    onTap: onTapAddButton,
+                  ),
+              ],
             ),
             SizedBox(
               height: 10,

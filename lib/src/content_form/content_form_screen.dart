@@ -6,7 +6,10 @@ import 'package:realtor_book/src/config/custom_colors.dart';
 import 'package:realtor_book/src/config/translations.dart';
 import 'package:realtor_book/src/content_form/content_form_controller.dart';
 import 'package:realtor_book/src/content_form/widgets/source_contact_info.dart';
+import 'package:realtor_book/src/content_form/widgets/source_details.dart';
+import 'package:realtor_book/src/content_form/widgets/source_files.dart';
 import 'package:realtor_book/src/content_form/widgets/source_pics.dart';
+import 'package:realtor_book/src/content_form/widgets/source_videos.dart';
 
 class ContentFormScreen extends GetView<ContentFormController> {
   @override
@@ -14,16 +17,37 @@ class ContentFormScreen extends GetView<ContentFormController> {
     return Scaffold(
       appBar: CustomAppBar(
         title: Text(CustomTranslations.shared.addANewProperty),
+        actions: [
+          Container(
+            padding: EdgeInsets.symmetric(horizontal: 20),
+            child: Icon(
+              Icons.done_rounded,
+              color: CustomColors.enabled,
+            ),
+          )
+        ],
       ),
       body: Container(
         color: CustomColors.background,
-        child: Column(
+        child: ListView(
           children: [
             SourceContactInfo(),
             SizedBox(
               height: 30,
             ),
-            SourcePics()
+            SourceDetails(),
+            SizedBox(
+              height: 30,
+            ),
+            SourcePics(),
+            SizedBox(
+              height: 30,
+            ),
+            SourceVideos(),
+            SizedBox(
+              height: 30,
+            ),
+            SourceFiles(),
           ],
         ),
       ),

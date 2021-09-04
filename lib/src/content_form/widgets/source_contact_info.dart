@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:realtor_book/src/common/custom_rounded_border.dart';
 import 'package:realtor_book/src/common/filled_input.dart';
 import 'package:realtor_book/src/common/profile_pic_with_cam.dart';
-import 'package:realtor_book/src/config/custom_colors.dart';
-import 'package:realtor_book/src/config/custom_text_style.dart';
 import 'package:realtor_book/src/config/translations.dart';
 
 class SourceContactInfo extends StatelessWidget {
