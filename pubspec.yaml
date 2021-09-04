@@ -28,6 +28,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   get:
+  loading_overlay:
 
 dev_dependencies:
   flutter_test:
@@ -38,6 +39,39 @@ dev_dependencies:
 
 # The following section is specific to Flutter.
 flutter:
+  assets:
+    - assets/images/
+
+  fonts:
+    - family: Century Gothic
+      fonts:
+        - asset: fonts/GOTHICB.ttf
+        - asset: fonts/GOTHIC.ttf
+        - asset: fonts/GOTHICI.ttf
+          
+
+    - family: Century Gothic Pro
+      fonts:
+        - asset: fonts/CenturyGothicPro-Regular.ttf
+    - family: Avenir Next LT Pro
+      fonts:
+        - asset: fonts/26301410506.ttf
+          weight: 500
+        - asset: fonts/25381880192.ttf
+          weight: 700
+        - asset: fonts/29730958262.ttf
+          style: italic
+        - asset: fonts/30716573843.ttf
+          weight: 400
+    
+    - family: Avenir LT Std
+      fonts:
+        - asset: fonts/AvenirLTStd-Book.otf
+        - asset: fonts/AvenirLTStd-Medium.otf
+        
+    - family: Helvetica
+      fonts: 
+        - asset: fonts/HelveticaNeue.ttc
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
