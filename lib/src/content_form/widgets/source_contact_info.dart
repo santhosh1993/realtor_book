@@ -10,9 +10,8 @@ class SourceContactInfo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CustomRoundedCardWithHeader(
-      padding: EdgeInsets.all(10),
       header: CustomTranslations.shared.propertyOwnerOrAgent,
-      cornerRadius: 5,
+      cornerRadius: 0,
       marginSpacing: 0,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

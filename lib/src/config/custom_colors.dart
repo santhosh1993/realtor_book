@@ -12,4 +12,5 @@ class CustomColors {
   static Color error = CustomColors.incorrectValidation;
   static Color correctValidation = Color.fromARGB(255, 11, 216, 153);
   static Color incorrectValidation = Color.fromARGB(255, 255, 103, 113);
+  static Color seperator = Color.fromARGB(255, 230, 230, 230);
 }

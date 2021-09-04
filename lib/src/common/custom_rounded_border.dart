@@ -36,15 +36,17 @@ class CustomRoundedCardWithHeader extends StatelessWidget {
   final double cornerRadius;
   final double elevation;
   final String header;
-  final EdgeInsets padding;
+  EdgeInsets? padding = EdgeInsets.all(10);
 
   CustomRoundedCardWithHeader(
       {required this.child,
       this.marginSpacing = 24,
       this.cornerRadius = 5,
       this.elevation = 2.0,
-      required this.padding,
-      required this.header});
+      this.padding,
+      required this.header}) {
+    this.padding = (this.padding == null) ? EdgeInsets.all(10) : this.padding;
+  }
 
   @override
   Widget build(BuildContext context) {

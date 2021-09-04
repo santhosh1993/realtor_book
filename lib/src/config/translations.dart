@@ -4,4 +4,5 @@ class CustomTranslations {
   var propertyOwnerOrAgent = "Property Owner / Agent";
   var name = "Name";
   var phone = "Phone";
+  var propertyImages = "Property images";
 }

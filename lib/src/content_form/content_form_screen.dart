@@ -6,6 +6,7 @@ import 'package:realtor_book/src/config/custom_colors.dart';
 import 'package:realtor_book/src/config/translations.dart';
 import 'package:realtor_book/src/content_form/content_form_controller.dart';
 import 'package:realtor_book/src/content_form/widgets/source_contact_info.dart';
+import 'package:realtor_book/src/content_form/widgets/source_pics.dart';
 
 class ContentFormScreen extends GetView<ContentFormController> {
   @override
@@ -17,7 +18,13 @@ class ContentFormScreen extends GetView<ContentFormController> {
       body: Container(
         color: CustomColors.background,
         child: Column(
-          children: [SourceContactInfo(), Expanded(child: Container())],
+          children: [
+            SourceContactInfo(),
+            SizedBox(
+              height: 30,
+            ),
+            SourcePics()
+          ],
         ),
       ),
     );
