@@ -13,7 +13,9 @@ class SourceDetails extends GetView<ContentFormController> {
         child: Container(),
         marginSpacing: 0,
         cornerRadius: 0,
-        onTapAddButton: () {},
+        onTapAddButton: () {
+          controller.addSourceDetails();
+        },
         header: CustomTranslations.shared.propertyDetails);
   }
 }
