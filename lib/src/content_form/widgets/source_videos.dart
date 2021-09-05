@@ -11,7 +11,9 @@ class SourceVideos extends GetView<ContentFormController> {
         child: Container(),
         marginSpacing: 0,
         cornerRadius: 0,
-        onTapAddButton: () {},
+        onTapAddButton: () {
+          controller.addVideos();
+        },
         header: CustomTranslations.shared.propertyVideos);
   }
 }

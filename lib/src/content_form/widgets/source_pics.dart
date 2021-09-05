@@ -11,7 +11,9 @@ class SourcePics extends GetView<ContentFormController> {
         child: Container(),
         marginSpacing: 0,
         cornerRadius: 0,
-        onTapAddButton: () {},
+        onTapAddButton: () {
+          controller.addImages();
+        },
         header: CustomTranslations.shared.propertyImages);
   }
 }

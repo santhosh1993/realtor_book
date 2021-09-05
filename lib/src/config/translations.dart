@@ -12,4 +12,8 @@ class CustomTranslations {
   var title = "Title";
   var save = "Save";
   var saveAndAdd = "Save & Add";
+  var regularImages = "Regular Images";
+  var realtorImages = "Realtor Images";
+  var regularVideos = "Regular Videos";
+  var realtorVideos = "Realtor Videos";
 }

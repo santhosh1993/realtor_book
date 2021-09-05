@@ -8,4 +8,8 @@ class Images {
   static String camera() {
     return _path + "camera.png";
   }
+
+  static String exampleImage() {
+    return _path + "exampleImage.png";
+  }
 }
