@@ -10,4 +10,6 @@ class CustomTranslations {
   var propertyDetails = "Property details";
   var description = "Description";
   var title = "Title";
+  var save = "Save";
+  var saveAndAdd = "Save & Add";
 }
