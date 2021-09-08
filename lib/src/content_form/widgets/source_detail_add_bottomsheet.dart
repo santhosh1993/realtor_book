@@ -1,11 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:realtor_book/src/common/custom_bottom_sheet.dart';
 import 'package:realtor_book/src/common/custom_button.dart';
 import 'package:realtor_book/src/common/custom_text_field.dart';
 import 'package:realtor_book/src/config/translations.dart';
+import 'package:realtor_book/src/content_form/content_form_controller.dart';
 
-class SourceDetailAddBottomSheet extends StatelessWidget {
+class SourceDetailAddBottomSheet extends GetView<ContentFormController> {
   @override
   Widget build(BuildContext context) {
     return CustomBottomSheet(
@@ -19,7 +21,9 @@ class SourceDetailAddBottomSheet extends StatelessWidget {
               height: 10,
             ),
             CustomTextFieldWithBorderAndHeader(
-                header: Text(CustomTranslations.shared.title)),
+              header: Text(CustomTranslations.shared.title),
+              controller: controller.titleController,
+            ),
             SizedBox(
               height: 10,
             ),
@@ -30,6 +34,7 @@ class SourceDetailAddBottomSheet extends StatelessWidget {
             Expanded(
               child: CustomTextFieldWithBorder(
                 maxLines: null,
+                controller: controller.descriptionController,
               ),
             ),
             SizedBox(
@@ -38,11 +43,18 @@ class SourceDetailAddBottomSheet extends StatelessWidget {
             Row(children: [
               Expanded(
                   child: CustomRoundedCornerButton.primary(
-                      title: CustomTranslations.shared.save)),
+                title: CustomTranslations.shared.save,
+                onPressed: () {
+                  controller.addDetails();
+                },
+              )),
               SizedBox(width: 10),
               Expanded(
                   child: CustomRoundedCornerButton.primary(
-                      title: CustomTranslations.shared.saveAndAdd))
+                      title: CustomTranslations.shared.saveAndAdd,
+                      onPressed: () {
+                        controller.addDetails(addAnother: true);
+                      }))
             ])
           ],
         ),
