@@ -31,6 +31,7 @@ dependencies:
   loading_overlay:
   sqflite:
   path:
+  simple_tooltip:
 
 dev_dependencies:
   flutter_test:
