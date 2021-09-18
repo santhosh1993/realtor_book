@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:realtor_book/src/common/custom_bottom_sheet.dart';
 import 'package:realtor_book/src/common/custom_button.dart';
 import 'package:realtor_book/src/common/custom_text_field.dart';
@@ -6,30 +7,38 @@ import 'package:realtor_book/src/config/custom_colors.dart';
 import 'package:realtor_book/src/config/custom_text_style.dart';
 import 'package:realtor_book/src/config/images.dart';
 import 'package:realtor_book/src/config/translations.dart';
+import 'package:realtor_book/src/user_info/user_info_controller.dart';
 
-class UserInfoAddBottomSheet extends StatelessWidget {
+class UserInfoAddBottomSheet extends GetView<UserInfoController> {
   @override
   Widget build(BuildContext context) {
     return CustomBottomSheet(
       child: Container(
-        height: 450,
+        height: 400,
         padding: EdgeInsets.all(10),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
           children: [
-            typeOfPics(buttonTitle: "as"),
+            samplePic(),
             SizedBox(
               height: 10,
             ),
             CustomTextFieldWithBorderAndHeader(
-                placeholder: "Contact Name",
-                header: Text(CustomTranslations.shared.name)),
+              controller: controller.nameController,
+              header: Text(CustomTranslations.shared.name),
+              onChanged: (data) {
+                controller.onNameChange();
+              },
+            ),
             SizedBox(
               height: 10,
             ),
             CustomTextFieldWithBorderAndHeader(
-                placeholder: "Contact Number",
-                header: Text(CustomTranslations.shared.contactNo)),
+              controller: controller.contactNumberController,
+              header: Text(CustomTranslations.shared.contactNo),
+              onChanged: (data) {
+                controller.onPhoneChange();
+              },
+            ),
             SizedBox(
               height: 5,
             ),
@@ -44,7 +53,7 @@ class UserInfoAddBottomSheet extends StatelessWidget {
     );
   }
 
-  Widget typeOfPics({required String buttonTitle}) {
+  Widget samplePic() {
     return Container(
       decoration: BoxDecoration(border: Border.all(color: Colors.black)),
       child: Column(
@@ -59,7 +68,7 @@ class UserInfoAddBottomSheet extends StatelessWidget {
                       height: 100,
                       color: CustomColors.appBar,
                       child: Image.asset(
-                        Images.exampleImage(),
+                        Images.startYourBuissness(),
                         fit: BoxFit.fitWidth,
                       ),
                     ),
@@ -84,18 +93,18 @@ class UserInfoAddBottomSheet extends StatelessWidget {
             children: [
               userInfo(),
               Container(
+                padding: EdgeInsets.only(right: 10),
                 child: Tooltip(
                   triggerMode: TooltipTriggerMode.tap,
-                  showDuration: Duration(seconds: 5),
+                  waitDuration: Duration(seconds: 1),
+                  showDuration: Duration(seconds: 1),
                   preferBelow: false,
-                  margin: EdgeInsets.only(left: 10, right: 10, top: 0),
+                  padding: EdgeInsets.all(5),
+                  margin: EdgeInsets.only(left: 10, right: 10),
                   message: CustomTranslations.shared.userInfoDescription,
-                  child: Container(
-                    padding: EdgeInsets.only(right: 10),
-                    child: Icon(
-                      Icons.info_outline_rounded,
-                      color: Colors.grey,
-                    ),
+                  child: Icon(
+                    Icons.info_outline_rounded,
+                    color: Colors.grey,
                   ),
                 ),
               )
@@ -107,24 +116,24 @@ class UserInfoAddBottomSheet extends StatelessWidget {
   }
 
   Widget userInfo() {
-    return Container(
-      padding: EdgeInsets.all(7),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "Name: Contact Name",
-            style: CustomTextStyle.regular(size: 16),
+    return Obx(() => Container(
+          padding: EdgeInsets.all(7),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Name: ${(controller.name.value.isEmpty) ? "Contact Name" : controller.name.value}",
+                style: CustomTextStyle.regular(size: 16),
+              ),
+              SizedBox(
+                height: 7,
+              ),
+              Text(
+                "Contact No: ${(controller.contactNumber.value.isEmpty) ? "Contact Number" : controller.contactNumber.value}",
+                style: CustomTextStyle.regular(size: 16),
+              )
+            ],
           ),
-          SizedBox(
-            height: 7,
-          ),
-          Text(
-            "Contact No: Contact Number",
-            style: CustomTextStyle.regular(size: 16),
-          )
-        ],
-      ),
-    );
+        ));
   }
 }

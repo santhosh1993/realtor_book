@@ -5,6 +5,7 @@ import 'dart:async';
 
 import 'package:path/path.dart';
 import 'package:realtor_book/src/user_info/user_info_add_bottom_sheet.dart';
+import 'package:realtor_book/src/user_info/user_info_controller.dart';
 import 'package:sqflite/sqflite.dart';
 
 class SplashController extends GetxController {
@@ -17,6 +18,7 @@ class SplashController extends GetxController {
 
   checkUserInfo() {
     Future.delayed(Duration(seconds: 1), () {
+      Get.lazyPut(() => UserInfoController());
       Get.bottomSheet(UserInfoAddBottomSheet());
     });
   }

@@ -5,7 +5,7 @@ class CustomTranslations {
   var name = "Name";
   var phone = "Phone";
   var userInfoDescription =
-      "Name and Contact number will be added into the every image you add into the realtorbook.";
+      "Name and Contact number will be added into the every image you add into the Realtor book.";
   var contactNo = "Contact Number";
   var propertyImages = "Property images";
   var propertyVideos = "Property videos";
