@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.ss.realtor_book">
+    package="com.sss.realtor_book">
    <application
         android:label="realtor_book"
         android:icon="@mipmap/ic_launcher">

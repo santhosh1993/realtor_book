@@ -16,4 +16,8 @@ class Images {
   static String startYourBuissness() {
     return _path + "startYourBusiness.jpeg";
   }
+
+  static String userInfoImageName() {
+    return 'userInfoImage.png';
+  }
 }

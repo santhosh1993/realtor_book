@@ -1,4 +1,4 @@
-package com.ss.realtor_book
+package com.sss.realtor_book
 
 import io.flutter.embedding.android.FlutterActivity
 

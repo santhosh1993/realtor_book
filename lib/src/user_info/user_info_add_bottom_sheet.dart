@@ -3,6 +3,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:realtor_book/src/common/custom_bottom_sheet.dart';
 import 'package:realtor_book/src/common/custom_button.dart';
 import 'package:realtor_book/src/common/custom_text_field.dart';
+import 'package:realtor_book/src/common/widget_to_image.dart';
 import 'package:realtor_book/src/config/custom_colors.dart';
 import 'package:realtor_book/src/config/custom_text_style.dart';
 import 'package:realtor_book/src/config/images.dart';
@@ -14,7 +15,7 @@ class UserInfoAddBottomSheet extends GetView<UserInfoController> {
   Widget build(BuildContext context) {
     return CustomBottomSheet(
       child: Container(
-        height: 400,
+        height: 440,
         padding: EdgeInsets.all(10),
         child: ListView(
           children: [
@@ -45,7 +46,11 @@ class UserInfoAddBottomSheet extends GetView<UserInfoController> {
             Row(children: [
               Expanded(
                   child: CustomRoundedCornerButton.primary(
-                      title: CustomTranslations.shared.save)),
+                title: CustomTranslations.shared.save,
+                onPressed: () {
+                  controller.onSaveTapped();
+                },
+              )),
             ])
           ],
         ),
@@ -65,11 +70,11 @@ class UserInfoAddBottomSheet extends GetView<UserInfoController> {
                 children: [
                   Expanded(
                     child: Container(
-                      height: 100,
+                      height: 150,
                       color: CustomColors.appBar,
                       child: Image.asset(
                         Images.startYourBuissness(),
-                        fit: BoxFit.fitWidth,
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
@@ -116,24 +121,27 @@ class UserInfoAddBottomSheet extends GetView<UserInfoController> {
   }
 
   Widget userInfo() {
-    return Obx(() => Container(
-          padding: EdgeInsets.all(7),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Name: ${(controller.name.value.isEmpty) ? "Contact Name" : controller.name.value}",
-                style: CustomTextStyle.regular(size: 16),
-              ),
-              SizedBox(
-                height: 7,
-              ),
-              Text(
-                "Contact No: ${(controller.contactNumber.value.isEmpty) ? "Contact Number" : controller.contactNumber.value}",
-                style: CustomTextStyle.regular(size: 16),
-              )
-            ],
-          ),
-        ));
+    return WidgetToImage(builder: (key) {
+      controller.key = key;
+      return Obx(() => Container(
+            padding: EdgeInsets.all(7),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Name: ${(controller.name.value.isEmpty) ? "Contact Name" : controller.name.value}",
+                  style: CustomTextStyle.regular(size: 16),
+                ),
+                SizedBox(
+                  height: 7,
+                ),
+                Text(
+                  "Contact No: ${(controller.contactNumber.value.isEmpty) ? "Contact Number" : controller.contactNumber.value}",
+                  style: CustomTextStyle.regular(size: 16),
+                )
+              ],
+            ),
+          ));
+    });
   }
 }
