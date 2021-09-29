@@ -13,7 +13,7 @@ class SplashController extends GetxController {
   void onInit() {
     super.onInit();
     WidgetsFlutterBinding.ensureInitialized();
-    checkUserInfo();
+    checkDataBase();
   }
 
   checkUserInfo() {

@@ -7,6 +7,11 @@ import 'package:realtor_book/src/config/images.dart';
 import 'package:realtor_book/src/config/translations.dart';
 
 class SourcePicsAddBottomSheet extends StatelessWidget {
+  final VoidCallback? regularImages;
+  final VoidCallback? realtorImages;
+
+  SourcePicsAddBottomSheet({this.realtorImages, this.regularImages});
+
   @override
   Widget build(BuildContext context) {
     return CustomBottomSheet(
@@ -32,15 +37,19 @@ class SourcePicsAddBottomSheet extends StatelessWidget {
                 children: [
                   Expanded(
                       child: typeOfPics(
-                          buttonTitle:
-                              CustomTranslations.shared.regularImages)),
+                          buttonTitle: CustomTranslations.shared.regularImages,
+                          ontap: () {
+                            regularImages?.call();
+                          })),
                   SizedBox(
                     width: 10,
                   ),
                   Expanded(
                       child: typeOfPics(
-                          buttonTitle:
-                              CustomTranslations.shared.realtorImages)),
+                          buttonTitle: CustomTranslations.shared.realtorImages,
+                          ontap: () {
+                            realtorImages?.call();
+                          })),
                 ],
               ),
             ),
@@ -50,7 +59,7 @@ class SourcePicsAddBottomSheet extends StatelessWidget {
     );
   }
 
-  Widget typeOfPics({required String buttonTitle}) {
+  Widget typeOfPics({required String buttonTitle, Function()? ontap}) {
     return Container(
       child: Column(
         children: [
@@ -69,7 +78,10 @@ class SourcePicsAddBottomSheet extends StatelessWidget {
           Row(
             children: [
               Expanded(
-                  child: CustomRoundedCornerButton.primary(title: buttonTitle))
+                  child: CustomRoundedCornerButton.primary(
+                title: buttonTitle,
+                onPressed: ontap,
+              ))
             ],
           )
         ],
