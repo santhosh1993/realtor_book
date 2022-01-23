@@ -17,11 +17,7 @@ class ContentFormController extends GetxController {
   }
 
   addImages() {
-    Get.bottomSheet(SourcePicsAddBottomSheet(realtorImages: () {
-      picImages();
-    }, regularImages: () {
-      picImages();
-    }));
+    picImages();
   }
 
   picImages() async {
