@@ -32,7 +32,7 @@ class SplashController extends GetxController {
             version: 1,
             onOpen: (db) {
               Future.delayed(Duration(seconds: 1), () {
-                Get.offAllNamed(Routes.contentForm);
+                Get.offAllNamed(Routes.contentList);
               });
             },
             onUpgrade: (db, oldVersion, newVerison) {});

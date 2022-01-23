@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:realtor_book/src/common/custom_appbar.dart';
 import 'content_list_controller.dart';
@@ -9,9 +8,14 @@ class ContentListScreen extends GetView<ContentListController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: Text("Property List"),
+        title: Text(
+          "Property List",
+          style: TextStyle(color: Colors.white),
+        ),
       ),
-      body: Container(),
+      body: Center(
+        child: Text("asdflna asfl n"),
+      ),
     );
   }
 }

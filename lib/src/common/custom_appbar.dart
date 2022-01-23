@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:realtor_book/src/config/custom_colors.dart';
 
 class CustomAppBar extends AppBar {
@@ -7,6 +8,6 @@ class CustomAppBar extends AppBar {
             title: title,
             backgroundColor: CustomColors.appBar,
             foregroundColor: CustomColors.appBar,
-            brightness: Brightness.dark,
+            systemOverlayStyle: SystemUiOverlayStyle.light,
             actions: actions);
 }
