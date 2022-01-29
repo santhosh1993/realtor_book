@@ -9,7 +9,7 @@ class SourceContactInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomRoundedCardWithHeader(
       header: CustomTranslations.shared.propertyOwnerOrAgent,
-      cornerRadius: 0,
+      cornerRadius: 7,
       marginSpacing: 0,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,

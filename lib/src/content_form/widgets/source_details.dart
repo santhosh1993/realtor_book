@@ -10,7 +10,7 @@ class SourceDetails extends GetView<ContentFormController> {
     return CustomRoundedCardWithHeader(
         child: Container(),
         marginSpacing: 0,
-        cornerRadius: 0,
+        cornerRadius: 7,
         onTapAddButton: () {
           controller.addSourceDetails();
         },

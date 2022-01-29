@@ -13,7 +13,7 @@ class SourcePics extends GetView<ContentFormController> {
     return Obx(() => CustomRoundedCardWithHeader(
         child: child(),
         marginSpacing: 0,
-        cornerRadius: 0,
+        cornerRadius: 7,
         onTapAddButton: () {
           controller.addImages();
         },

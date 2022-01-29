@@ -29,23 +29,24 @@ class ContentFormScreen extends GetView<ContentFormController> {
       ),
       body: Container(
         color: CustomColors.background,
+        padding: EdgeInsets.all(10),
         child: ListView(
           children: [
             SourceContactInfo(),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             SourceDetails(),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             SourcePics(),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             SourceVideos(),
             SizedBox(
-              height: 30,
+              height: 10,
             ),
             SourceFiles(),
           ],

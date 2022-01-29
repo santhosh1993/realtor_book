@@ -6,7 +6,7 @@ import 'package:realtor_book/src/content_form/widgets/source_detail_add_bottomsh
 
 class ContentFormController extends GetxController {
   RxList<String> images = <String>[].obs;
-  RxList<XFile> videos = <XFile>[].obs;
+  RxList<String> videos = <String>[].obs;
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   final ImagePicker _picker = ImagePicker();
@@ -44,8 +44,18 @@ class ContentFormController extends GetxController {
   }
 
   addVideos() async {
-    final XFile? video = await _picker.pickVideo(source: ImageSource.gallery);
-    if (video != null) {}
+    try {
+      final XFile? video = await _picker.pickVideo(source: ImageSource.gallery);
+      if (video != null) {
+        var tempPath =
+            await FileManager.getFilePath("temp" + tempIndex.toString());
+        video.saveTo(tempPath);
+        videos.add(tempPath);
+        tempIndex = tempIndex + 1;
+      }
+    } catch (e) {
+      print(e);
+    }
   }
 
   addDetails({bool addAnother = false}) {
