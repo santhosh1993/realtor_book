@@ -1,8 +1,10 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:realtor_book/src/config/file_manager.dart';
 import 'package:realtor_book/src/content_form/widgets/source_detail_add_bottomsheet.dart';
+import 'package:video_thumbnail/video_thumbnail.dart';
 
 class ContentFormController extends GetxController {
   RxList<String> images = <String>[].obs;
@@ -47,10 +49,20 @@ class ContentFormController extends GetxController {
     try {
       final XFile? video = await _picker.pickVideo(source: ImageSource.gallery);
       if (video != null) {
-        var tempPath =
-            await FileManager.getFilePath("temp" + tempIndex.toString());
+        var tempPath = await FileManager.getFilePath(
+            "temp" + tempIndex.toString() + ".mp4");
         video.saveTo(tempPath);
-        videos.add(tempPath);
+
+        final fileName = await VideoThumbnail.thumbnailFile(
+          video: tempPath,
+          thumbnailPath: (await getTemporaryDirectory()).path,
+          imageFormat: ImageFormat.JPEG,
+          maxWidth:
+              128, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
+          quality: 75,
+        );
+
+        videos.add(fileName ?? "");
         tempIndex = tempIndex + 1;
       }
     } catch (e) {

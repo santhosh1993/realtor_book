@@ -21,13 +21,13 @@ class SourceVideos extends GetView<ContentFormController> {
   }
 
   Widget child() {
-    if (controller.images.length == 0) {
+    if (controller.videos.length == 0) {
       return Container();
     } else {
       return Container(
         height: 120,
         child: ListView.separated(
-          itemCount: controller.images.length,
+          itemCount: controller.videos.length,
           scrollDirection: Axis.horizontal,
           itemBuilder: (context, index) {
             return Container(
@@ -35,7 +35,7 @@ class SourceVideos extends GetView<ContentFormController> {
               height: 120,
               child: SourceThumbnailCross(
                 child: Image.file(
-                  File(controller.images[index]),
+                  File(controller.videos[index]),
                   fit: BoxFit.cover,
                 ),
                 onCrossTap: () {
