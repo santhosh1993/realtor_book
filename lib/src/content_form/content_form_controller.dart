@@ -20,6 +20,10 @@ class ContentFormController extends GetxController {
     picImages();
   }
 
+  removeImage(int index) {
+    images.removeAt(index);
+  }
+
   picImages() async {
     try {
       final List<XFile>? images = await _picker.pickMultiImage();

@@ -38,7 +38,9 @@ class SourcePics extends GetView<ContentFormController> {
                   File(controller.images[index]),
                   fit: BoxFit.cover,
                 ),
-                onCrossTap: () {},
+                onCrossTap: () {
+                  controller.removeImage(index);
+                },
                 index: index.toString(),
               ),
             );

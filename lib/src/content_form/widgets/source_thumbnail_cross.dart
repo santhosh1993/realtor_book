@@ -28,30 +28,26 @@ class SourceThumbnailCross extends StatelessWidget {
         Row(
           children: [
             Expanded(child: Container()),
-            Container(
-              width: 40,
-              height: 40,
-              color: Colors.amber,
+            GestureDetector(
+              child: Container(
+                width: 30,
+                height: 30,
+                decoration: BoxDecoration(
+                    color: Colors.black38,
+                    borderRadius: BorderRadius.all(Radius.circular(15))),
+                child: Icon(
+                  Icons.close,
+                  color: Colors.white,
+                  size: 15,
+                ),
+              ),
+              onTap: () {
+                onCrossTap();
+              },
             )
           ],
         ),
         Expanded(child: Container()),
-        Row(
-          children: [
-            Container(
-              width: 40,
-              height: 40,
-              padding: EdgeInsets.all(5),
-              color: Colors.amber,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [Text(index ?? "")],
-              ),
-            ),
-            Expanded(child: Container()),
-          ],
-        ),
       ],
     );
   }
