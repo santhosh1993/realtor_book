@@ -3,12 +3,14 @@ import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:realtor_book/src/config/file_manager.dart';
+import 'package:realtor_book/src/content_form/detail.dart';
 import 'package:realtor_book/src/content_form/widgets/source_detail_add_bottomsheet.dart';
 import 'package:video_thumbnail/video_thumbnail.dart';
 
 class ContentFormController extends GetxController {
   RxList<String> images = <String>[].obs;
   RxList<String> videos = <String>[].obs;
+  RxList<Detail> details = <Detail>[].obs;
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   final ImagePicker _picker = ImagePicker();
@@ -73,6 +75,8 @@ class ContentFormController extends GetxController {
   addDetails({bool addAnother = false}) {
     print(titleController.text);
     print(descriptionController.text);
+    details.add(Detail(
+        title: titleController.text, description: descriptionController.text));
     titleController.text = "";
     descriptionController.text = "";
     if (!addAnother) {
