@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:realtor_book/src/common/custom_rounded_border.dart';
 import 'package:realtor_book/src/config/translations.dart';
 import 'package:realtor_book/src/content_form/content_form_controller.dart';
+import 'package:realtor_book/src/content_form/widgets/source_thumbnail_cross.dart';
 
 class SourcePics extends GetView<ContentFormController> {
   @override
@@ -32,9 +33,13 @@ class SourcePics extends GetView<ContentFormController> {
             return Container(
               width: 100,
               height: 120,
-              child: Image.file(
-                File(controller.images[index]),
-                fit: BoxFit.fill,
+              child: SourceThumbnailCross(
+                child: Image.file(
+                  File(controller.images[index]),
+                  fit: BoxFit.cover,
+                ),
+                onCrossTap: () {},
+                index: index.toString(),
               ),
             );
           },

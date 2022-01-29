@@ -10,6 +10,7 @@ class ContentFormController extends GetxController {
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   final ImagePicker _picker = ImagePicker();
+  int tempIndex = 0;
 
   addSourceDetails() {
     Get.bottomSheet(SourceDetailAddBottomSheet());
@@ -25,9 +26,11 @@ class ContentFormController extends GetxController {
       var paths = <String>[];
       if (images != null) {
         for (var image in images) {
-          var tempPath = await FileManager.getFilePath("temp");
+          var tempPath =
+              await FileManager.getFilePath("temp" + tempIndex.toString());
           image.saveTo(tempPath);
           paths.add(tempPath);
+          tempIndex = tempIndex + 1;
         }
         this.images.addAll(paths);
       }
