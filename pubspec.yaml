@@ -33,7 +33,8 @@ dependencies:
   path:
   path_provider:
   image_picker:
-  video_thumbnail: 
+  video_thumbnail:
+  file_picker: 
 
 
 dev_dependencies:

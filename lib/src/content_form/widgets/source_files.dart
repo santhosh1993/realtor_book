@@ -11,7 +11,9 @@ class SourceFiles extends GetView<ContentFormController> {
         child: Container(),
         marginSpacing: 0,
         cornerRadius: 7,
-        onTapAddButton: () {},
+        onTapAddButton: () {
+          controller.addFiles();
+        },
         header: CustomTranslations.shared.propertyFiles);
   }
 }
