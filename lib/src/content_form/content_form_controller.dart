@@ -52,8 +52,7 @@ class ContentFormController extends GetxController {
           video: video.path,
           thumbnailPath: (await getTemporaryDirectory()).path,
           imageFormat: ImageFormat.JPEG,
-          maxWidth:
-              128, // specify the height of the thumbnail, let the width auto-scaled to keep the source aspect ratio
+          maxWidth: 128,
           quality: 75,
         );
 

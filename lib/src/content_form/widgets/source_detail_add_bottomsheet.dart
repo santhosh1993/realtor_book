@@ -35,6 +35,7 @@ class SourceDetailAddBottomSheet extends GetView<ContentFormController> {
               child: CustomTextFieldWithBorder(
                 maxLines: null,
                 controller: controller.descriptionController,
+                keyboardType: TextInputType.multiline,
               ),
             ),
             SizedBox(

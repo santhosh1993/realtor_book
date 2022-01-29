@@ -1,21 +1,21 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:realtor_book/src/config/custom_colors.dart';
 import 'package:realtor_book/src/config/custom_text_style.dart';
 
 class CustomTextFieldWithBorder extends CupertinoTextField {
-  CustomTextFieldWithBorder({
-    TextEditingController? controller,
-    bool obscureText = false,
-    String? placeholder,
-    void Function(String)? onChanged,
-    Color? borderColor,
-    TextStyle? style,
-    TextStyle? placeholderStyle,
-    int? maxLines = 1,
-    List<TextInputFormatter>? inputFormatters,
-  }) : super(
+  CustomTextFieldWithBorder(
+      {TextEditingController? controller,
+      bool obscureText = false,
+      String? placeholder,
+      void Function(String)? onChanged,
+      Color? borderColor,
+      TextStyle? style,
+      TextStyle? placeholderStyle,
+      int? maxLines = 1,
+      List<TextInputFormatter>? inputFormatters,
+      TextInputType? keyboardType})
+      : super(
           inputFormatters: inputFormatters,
           controller: controller,
           style: style,
@@ -23,6 +23,7 @@ class CustomTextFieldWithBorder extends CupertinoTextField {
           placeholder: placeholder,
           onChanged: onChanged,
           maxLines: maxLines,
+          keyboardType: keyboardType,
           textInputAction: TextInputAction.done,
           padding: EdgeInsets.fromLTRB(10, 10, 10, 10),
           placeholderStyle: placeholderStyle ??
