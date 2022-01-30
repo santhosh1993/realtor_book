@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:realtor_book/src/config/custom_colors.dart';
 import 'package:realtor_book/src/config/images.dart';
@@ -28,19 +30,9 @@ class ProfilePicWithCam extends StatelessWidget {
                 child: ClipRRect(
                     borderRadius: BorderRadius.circular(width / 2),
                     child: (picUrl.isNotEmpty)
-                        ? Image.network(
-                            this.picUrl,
+                        ? Image.file(
+                            File(picUrl),
                             fit: BoxFit.cover,
-                            loadingBuilder: (context, child, chunk) {
-                              if (chunk == null) {
-                                return child;
-                              }
-                              return LoadingContainer(
-                                  child: defaultPorfilePic(), isLoading: true);
-                            },
-                            errorBuilder: (context, object, trace) {
-                              return defaultPorfilePic();
-                            },
                           )
                         : defaultPorfilePic())),
             Positioned(

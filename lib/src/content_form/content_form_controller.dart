@@ -12,10 +12,22 @@ class ContentFormController extends GetxController {
   RxList<String> videos = <String>[].obs;
   RxList<Detail> details = <Detail>[].obs;
   RxList<String> files = <String>[].obs;
+  RxString profilePicUrl = "".obs;
 
   TextEditingController titleController = TextEditingController();
   TextEditingController descriptionController = TextEditingController();
   final ImagePicker _picker = ImagePicker();
+
+  addProfilePic() async {
+    try {
+      final XFile? file = await _picker.pickImage(source: ImageSource.gallery);
+      if (file?.path != null) {
+        profilePicUrl.value = (file?.path)!;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
 
   addSourceDetails() {
     Get.bottomSheet(SourceDetailAddBottomSheet());
